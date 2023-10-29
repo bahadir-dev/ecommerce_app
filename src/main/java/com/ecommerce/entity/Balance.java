@@ -1,9 +1,9 @@
 package com.ecommerce.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -20,4 +20,7 @@ public class Balance {
     @OneToOne
     private Customer customer;
 
+    public Balance(BigDecimal amount) {
+        this.amount = amount;
+    }
 }

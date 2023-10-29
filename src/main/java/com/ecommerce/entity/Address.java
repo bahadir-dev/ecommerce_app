@@ -1,8 +1,10 @@
 package com.ecommerce.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -18,6 +20,13 @@ public class Address {
 
     @ManyToOne
     private Customer customer;
+
+    public Address(String id, String name, String street, String zipCode) {
+        this.id = id;
+        this.name = name;
+        this.street = street;
+        this.zipCode = zipCode;
+    }
 
 
 }

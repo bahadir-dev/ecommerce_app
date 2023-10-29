@@ -1,9 +1,9 @@
 package com.ecommerce.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -20,8 +20,15 @@ public class Customer {
     private String email;
     private String userName;
 
-    @OneToOne(mappedBy = "balance")
+    @OneToOne(mappedBy = "customer")
     private Balance balance;
-    @OneToMany(mappedBy = "address")
-    private List<Address> address;
+    @OneToMany(mappedBy = "customer")
+    private List<Address> addressList;
+
+    public Customer(String firstName, String lastName, String email, String userName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userName = userName;
+    }
 }
