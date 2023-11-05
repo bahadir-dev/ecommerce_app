@@ -1,26 +1,21 @@
 package com.ecommerce.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-public class Balance {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Balance extends BaseEntity {
 
     private BigDecimal amount;
 
     @OneToOne
     private Customer customer;
-
-    public Balance(BigDecimal amount) {
-        this.amount = amount;
-    }
 }

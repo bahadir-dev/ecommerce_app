@@ -8,19 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-public class Address extends BaseEntity{
+public class CartItem extends BaseEntity {
 
-
-    private String name;
-    private String street;
-    private String zipCode;
+    private Integer quantity;
 
     @ManyToOne
-    private Customer customer;
+    private Product product;
 
-
-
+    @ManyToOne
+    private Cart cart;
 }

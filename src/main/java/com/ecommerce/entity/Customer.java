@@ -1,34 +1,20 @@
 package com.ecommerce.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-public class Customer {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Customer extends BaseEntity {
 
     private String firstName;
     private String lastName;
     private String email;
     private String userName;
 
-    @OneToOne(mappedBy = "customer")
-    private Balance balance;
-    @OneToMany(mappedBy = "customer")
-    private List<Address> addressList;
-
-    public Customer(String firstName, String lastName, String email, String userName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userName = userName;
-    }
 }
